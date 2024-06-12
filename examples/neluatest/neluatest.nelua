@@ -1,0 +1,9 @@
+## cinclude '<libdragon.h>'
+
+local function console_init() <cimport> end
+
+local function main(): cint <cexport, codename 'main'>
+    console_init();
+    print 'Hello nelua on n64!'
+    while true do end
+end
