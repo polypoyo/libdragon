@@ -169,7 +169,7 @@ $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.cpp
 $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.nelua
 	@mkdir -p $(dir $@)
 	@echo "    [NELUA] $<"
-	nelua -o $@ --cc $(CC) --cflags="$(CFLAGS)" $< -P noentrypoint
+	nelua -o $@ --cc $(CC) --cflags="$(subst -MMD,,$(CFLAGS))" $< -P noentrypoint
 
 %.elf: $(N64_LIBDIR)/libdragon.a $(N64_LIBDIR)/libdragonsys.a $(N64_LIBDIR)/n64.ld
 	@mkdir -p $(dir $@)
